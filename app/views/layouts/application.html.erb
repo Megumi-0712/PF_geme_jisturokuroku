@@ -10,6 +10,54 @@
   </head>
 
   <body>
+    <div class="container">
+      <header>
+        <div class="col-xs-3">
+          <h2 class="Blog-title">
+            ゲーム実録々
+          </h2>
+        </div>
+        <div class="col-xs-5">
+          <div class="nav navbar-right">
+            <ul class="nav nav-pills">
+
+              <% if user_signed_in? %>
+
+                <li class="menu">
+                  <%= link_to 'About', about_path %>
+                </li>
+                <li class="menu">
+                  <%= link_to 'マイページ', user_path %>
+                </li>
+                <li class="menu">
+                  <%= link_to '新規作成', new_blog_path %>
+                </li>
+                <li class="menu">
+                  <%= link_to '記事一覧', blogs_path %>
+                </li>
+                <li class="menu">
+                  <%= link_to 'お問い合わせ', new_contact_path %>
+                </li>
+                <li class="menu">
+                  <%= link_to "ログアウト", destroy_user_session_path, mothod: :delete %>
+                </li>
+              <% else %>
+
+                <li class="menu">
+                  <%= link_to 'About', about_path %>
+                </li>
+                <li class="menu">
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+                <li class="menu">
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </header>
+      </div>
     <%= yield %>
     <footer>
       <p>ゲーム実録々</p>

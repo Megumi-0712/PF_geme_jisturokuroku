@@ -1,6 +1,10 @@
 class BlogsController < ApplicationController
 
+before_action :authenticate_user!
+before_action :correct_blog, only: [:edit, :update, :destroy]
+
 	def index
+		@blogs = Blog.all
 	end
 
 	def new
@@ -8,12 +12,13 @@ class BlogsController < ApplicationController
 	end
 
 	def create
-		@blog = Blog.new(blog_params)
+		blog = Blog.new(blog_params)
 		blog.save
-		redirect_to blog_path
+		redirect_to blog_path(blog.id)
 	end
 
 	def show
+		@blog = Blog.find(params[:id])
 	end
 
 	def edit
@@ -27,6 +32,6 @@ class BlogsController < ApplicationController
 
 	private
 	def blog_params
-		params.require(:blog).permit(:title, :text)
+		params.require(:blog).permit(:title, :blog_text)
 	end
 end
