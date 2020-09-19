@@ -14,11 +14,13 @@ before_action :correct_blog, only: [:edit, :update, :destroy]
 	def create
 		blog = Blog.new(blog_params)
 		blog.save
-		redirect_to blog_path(blog.id)
+		redirect_to blog_path(@blog.id)
 	end
 
 	def show
 		@blog = Blog.find(params[:id])
+		@blog = Blog.find_by(id: params[:id])
+    	@user = @blog.user
 	end
 
 	def edit
