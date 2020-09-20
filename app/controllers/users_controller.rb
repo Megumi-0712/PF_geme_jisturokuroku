@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@blogs = @user.blogs
 	end
 
 	def edit
@@ -36,9 +37,6 @@ class UsersController < ApplicationController
 			flash.now[:error]
 			render :edit
 		end
-	end
-
-	def destroy
 	end
 
 	private
