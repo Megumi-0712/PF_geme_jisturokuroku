@@ -1,1 +1,29 @@
-User一覧画面
+<div class="container">
+	<div class="col-xs-5"></div>
+	<div class="col-xs-5">
+		<h2>ユーザー一覧</h2>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+				<tr>
+					<td>
+						<% attachment_image_tag user, :profile_image, :fill, 20, 20, format: 'jpg', fallback: "no_image.jpg" %>
+					</td>
+					<td>
+						<%= user.name %>
+					</td>
+					<td>
+						<%= link_to "気になる" , user_path(user.id)%>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

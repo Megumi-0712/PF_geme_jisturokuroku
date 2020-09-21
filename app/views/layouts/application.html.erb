@@ -60,7 +60,22 @@
       </div>
     <%= yield %>
     <footer>
-      <p>ゲーム実録々</p>
+      <div id="footer">
+        <div class="container">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-3">
+            <div class="footer-text">
+              <h6>お借りした写真</h6>
+              <%= link_to "写真AC様", "https://www.photo-ac.com/" %><br>
+              <%= link_to "いらすとや様", "https://www.irasutoya.com/" %>
+            </div>
+          </div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-5">
+            <p class="footer-text">ゲーム実録々</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

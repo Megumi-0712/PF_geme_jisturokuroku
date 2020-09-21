@@ -1,1 +1,16 @@
-User編集画面
+<div class="container">
+	<div class="col-xs-5"></div>
+	<div class="col-xs-5">
+		<h2>ユーザー設定</h2>
+
+		<% form_for(@user) do |f| %>
+
+			<%= f.text_field :name %>
+			<%= attachment_image_tag @user, :profile_image, :fill,60,60, fallback: "no_image.jpg" %>
+
+			<%= f.attachment_field :profile_image %>
+			<%= f.text_area :introduction %>
+			<%= f.submit "設定を変更する" %>
+		<% end %>
+	</div>
+</div>
