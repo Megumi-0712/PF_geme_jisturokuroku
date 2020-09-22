@@ -1,1 +1,22 @@
-User詳細画面(マイページ)
+<div class="container">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-3">
+  	<%= @user.prifile_image %>
+  	<%= @user.name %>
+  	<%= @user.introduction %>
+  </div>
+
+  <div class="col-xs-5">
+  	<table class="table">
+  		<thead>
+  			<tr></tr>
+  			
+  		</thead>
+  		<tbody>
+			<% @blog.each do |blog| %>
+				<td><%= link_to blog.title, blog_path(blog.id) %></td>
+				<td><%= @blog.blog_text %></td>
+				<td><%= @blog.created_at %></td>
+				<td><%= @blog.update_at %></td>
+			<% end %>
+		</tbody>
