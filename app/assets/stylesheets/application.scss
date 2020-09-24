@@ -16,9 +16,85 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  
+ @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+
+ @font-face {
+ 	font-family: "rounded-mgenplus-2cp-black";
+ 	src: asset_url('rounded-mgenplus-2cp-black') format("truetype");
+ 	font-weight: normal;
+ 	font-style: normal;
+ }
+
  .container {
- margin: auto;
- padding: 10px;
+ 	margin: auto;
+ 	padding: 10px;
+ }
+
+ .nav-nav-field {
+ 	font-family: 'rounded-mgenplus-2cp-black';
+ 	text-align: center;
+ 	text-transform: uppercase;
+ 	font-weight: 500;
+ }
+
+ .nav-nav-field * {
+ 	box-sizing: border-box;
+ }
+
+ .nav-nav-field li {
+ 	display: inline-block;
+ 	list-style: outside none none;
+ 	margin: 0 1.5em;
+ 	padding: 0;
+ }
+
+ .nav-nav-field a {
+ 	padding: 0.5em 0;
+ 	color: black;
+ 	position: relative;
+ 	letter-spacing: 1px;
+ 	text-decoration: none;
+ }
+
+ .nav-nav-field a:before,
+ .nav-nav-field a:after {
+ 	position: absolute;
+ 	-webkit-transition: all 0.35s ease;
+ 	transition: all 0.35s ease;
+ }
+
+ .nav-nav-field a:before {
+ 	bottom: 0;
+ 	display: block;
+ 	height: 3px;
+ 	width: 0%;
+ 	content: "";
+ 	background-color: #752100;
+ }
+
+ .nav-nav-field a:after {
+ 	left: 0;
+ 	top: 0;
+ 	padding: 0.5em 0;
+ 	position: absolute;
+ 	content: attr(date-hover);
+ 	color: #fff;
+ 	white-space: nowrap;
+ 	max-width: 0%;
+ 	overflow: hidden;
+ }
+
+ .nav-nav-field a:hover:before {
+ 	opacity: 1;
+ 	width: 100%;
+ }
+
+ .nav-nav-field a:hover:after{
+ 	max-width: 100%;
+ }
+
+ .label {
+ 	font-family: "rounded-mgenplus-2cp-black";
  }
 
  footer{
@@ -27,11 +103,16 @@
  }
 
  .footer-text {
- color: white;
+ 	color: white;
+ 	font-family: 'rounded-mgenplus-2cp-black';
  }
 
  footerWrap {
  	width: 960px;
  	margin: auto;
  	padding: 10px;
+ }
+
+ p {
+ 	font-family: 'rounded-mgenplus-2cp-black';
  }

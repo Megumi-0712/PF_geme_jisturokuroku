@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 		resources :comments, only: [:new, :create, :index, :destroy]
 	end
 	resources :contacts, only: [:new, :create]
-	resources :users
+	resources :users, only: [:show, :edit, :update]
 end
