@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 	before_action :correct_user, only: [:edit, :update]
 
 	def index
-		@users = User.all
 		@user = current_user
+		@users = User.all
 	end
 
 	def show

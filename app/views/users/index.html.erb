@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="col-xs-5"></div>
+	<div class="col-xs-4"></div>
 	<div class="col-xs-5">
 		<h2>ユーザー一覧</h2>
 
@@ -14,7 +14,7 @@
 				<% @users.each do |user| %>
 				<tr>
 					<td>
-						<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
+						<%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
 					</td>
 					<td>
 						<%= user.name %>
@@ -23,6 +23,7 @@
 						<%= link_to "気になる" , user_path(user.id)%>
 					</td>
 				</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>

@@ -4,5 +4,6 @@
   	<%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
   	<%= @user.name %>
   	<%= @user.introduction %>
+    <%= link_to "設定", edit_user_path(@user.id) %>
   </div>
 </div>

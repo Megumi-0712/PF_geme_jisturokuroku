@@ -13,9 +13,7 @@
     <div class="container">
       <header>
         <div class="col-xs-3">
-          <h2 class="Blog-title">
-            ゲーム実録々
-          </h2>
+          <%= link_to image_tag("logo.jpg"), root_path %>
         </div>
         <div class="col-xs-5"></div>
           <div class="nav navbar-right">
@@ -32,6 +30,11 @@
                 <li>
                   <%= link_to '記事一覧', blogs_path %>
                 </li>
+
+                <li>
+                  <%= link_to 'ユーザー一覧', users_path %>
+                </li>
+
                 <li>
                   <%= link_to 'お問い合わせ', new_contact_path %>
                 </li>
