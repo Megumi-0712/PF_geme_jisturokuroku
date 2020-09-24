@@ -14,7 +14,6 @@ before_action :correct_blog, only: [:edit, :update, :destroy]
 
 	def create
 		@blog = Blog.new(blog_params)
-		@blog.user_id = current_user.id
 		if @blog.save
 			flash[:notice] = "ブログを投稿しました"
 			redirect_to blog_path(@blog)
