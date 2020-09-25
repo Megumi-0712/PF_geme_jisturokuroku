@@ -6,4 +6,14 @@
   	<%= @user.introduction %>
     <%= link_to "設定", edit_user_path(@user.id) %>
   </div>
+  <div class="col-xs-5">
+    <table class="table">
+      <thead>
+        <tr></tr>
+		
+		</thead>
+		<tbody>
+			<% @blogs.each do |blog| %>
+			<% end %>
+		</tbody>
 </div>

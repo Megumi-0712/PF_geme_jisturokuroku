@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
-		@blogs = @user.blogs
+		@blogs = @user.blogs		#自分で作成したブログ記事一覧を表示させる
 	end
 
 	def create

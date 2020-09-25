@@ -26,6 +26,8 @@ before_action :correct_blog, only: [:edit, :update, :destroy]
 	def show
 		@blog = Blog.find_by(id: params[:id])
 		@user = @blog.user
+		@blog_comments = @blog.comments		#コメントを表示させる
+		@blog_comment = Comment.new		#ブログ詳細ページでコメント投稿が出来るようにさせる
 	end
 
 	def edit
