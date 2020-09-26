@@ -1,7 +1,7 @@
 class Blog < ApplicationRecord
 
 	belongs_to :user
-	has_many :blogs, dependent: :destroy
+	has_many :comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
 
 	def favorited_by?(user)

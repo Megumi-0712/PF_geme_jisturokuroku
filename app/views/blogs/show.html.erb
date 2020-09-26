@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="col-xs-4"></div>
 	<div class="col-xs-5">
-		<h2>ブログ</h2>
+		<h1 class="sub-title">ブログ</h1>
 		<h3 class="blog-title">
 			<%= @blog.title %>
 		</h3>
@@ -13,19 +13,28 @@
 			<p class="blog-date">
 			<span><%= @blog.created_at.strftime('%Y/%m/%d') %></span>
 			<div class="comment">
-				<%= @blog.blog_comments.count %>件コメント
+				<%= @blog.comments.count %>件コメント
 			</div>
 			</p>
 		</ul>
 
+		<h2 class="sub-title">コメント一覧</h2>
+
+			<% @comments.each do |comment| %>
+			<div class="comment-text">
+				<% comment.user.name %>
+			<span class= "comment-date"><%= comment.created_atstrftime('%Y/%m/%d') %></span>
+
 		<!--コメントフォーム-->
-		<%= form_for [@blog, @blog_comment] do |f| %>
-		<div class="row">
-			<div class="col-sm-12">]
-				<%= f.text_area :comment_post, rows:'5', class: "form-control", placeholder:"コメントをここに" %>
+		<% if user_signed_in? %>
+			<%= form_for [@blog, @comment] do |f| %>
+			<div class="row">
+				<div class="col-sm-12">]
+					<%= f.text_area :comment_post, rows:'5', class: "form-control", placeholder:"コメントをここに" %>
+				</div>
 			</div>
-		</div>
-		<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+			<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+			<% end %>
 		<% end %>
 
 		<!--コメントフォームここまで-->

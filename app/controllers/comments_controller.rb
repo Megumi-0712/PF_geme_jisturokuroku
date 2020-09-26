@@ -1,21 +1,29 @@
 class CommentsController < ApplicationController
-
-	def new
-	end
+	before_action :authenticate_user!
 
 	def create
 		blog = Blog.find(params[:blog_id])
-		blog_comment = current_user.comments.new(comment_params)
-		blog_comment.blog_id = blog_id
-		blog_comment.save
-		redirect_to blog_path(blog)
+		@comment = current_user.comments.build(comment_params)
+		@comment.user_id = current_user_id
+		if comment.save
+			flash[:success] = "コメントしました"
+			redirect_back(fallback_location: blog_url(blog.id))
+
+		else
+			flash[:danger] = "コメント投稿に失敗しました"
+			redirect_back(fallback_location: blog_url(blog.id))
+		end
 	end
 
 	def destroy
+		blog = Blog.find(params[:blog.id])
+		@comment = blog.comments.find(params[:id])
+		@comment.destroy
+		redirect_back(fallback_location: blog_path(blog))
 	end
 
 	private
-	def blog_comment_params
+	def comment_params
 		params.require(:comment).permit(:comment_post)
-
+	end
 end
