@@ -1,13 +1,15 @@
 <div class="container">
   <div class="col-xs-4"></div>
   <div class="col-xs-5">
-    <h2>ログイン</h2>
+    <h2 class="sub-title">ログイン</h2>
+    <br>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
+      <br>
 
       <div class="field">
         <%= f.label :password %><br />
@@ -25,6 +27,7 @@
       <div class="actions">
         <%= f.submit "ログイン" %>
       </div>
+      <br>
     <% end %>
 
     <%= render "devise/shared/links" %>
