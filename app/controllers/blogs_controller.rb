@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
 
-before_action :authenticate_user!
-before_action :correct_blog, only: [:edit, :update, :destroy]
+	before_action :authenticate_user!
+	before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
 	def index
 		@blogs = Blog.all
@@ -14,6 +14,7 @@ before_action :correct_blog, only: [:edit, :update, :destroy]
 
 	def create
 		@blog = Blog.new(blog_params)
+		@blog.user_id = current_user.id
 		if @blog.save
 			flash[:notice] = "ブログを投稿しました"
 			redirect_to blog_path(@blog)

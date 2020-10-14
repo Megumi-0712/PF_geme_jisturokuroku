@@ -5,14 +5,24 @@
 		<div class="user-setting">
 
 			<!--ユーザー設定-->
-			<% form_for(@user) do |f| %>
+			<%= form_for(@user) do |f| %>
+				<div class="field">
+					<%= f.label :name %>
+					<%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"名前" %>
+				</div>
+				<div class="field">
+					<%= f.label :image %>
+					<%= f.attachment_field :profile_image, class: "user_image" %>
+				</div>
 
-				<%= f.text_field :name %>
-				<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
+				<div class="field">
+					<%= f.label :introduction %>
+					<%= f.text_area :introduction, class: "introduction" %>
+				</div>
 
-				<%= f.attachment_field :profile_image %>
-				<%= f.text_area :introduction %>
+				<div class="action">
 				<%= f.submit "設定を変更する" %>
+				</div>
 			<% end %>
 		</div>
 	</div>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
 	before_action :authenticate_user!
 	before_action :correct_user, only: [:edit, :update]
 
@@ -9,34 +10,22 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
-		@blogs = @user.blogs		#自分で作成したブログ記事一覧を表示させる
-	end
-
-	def create
-		@user = User.create(user_params)
-		if @user.save
-			flash[:notice] = "ご登録有難うございます！"
-			redirect_to user_path(@user.id)
-		else
-			flash.now[:error]
-			render :new
-		end
+		@blogs = @user.blogs.page(params[:page]).reverse_order		#ソートの降順
 	end
 
 	def edit
 		@user = User.find(params[:id])
-		@users = User.all
 	end
 
 	def update
-		@user = User.find_by(id: params[:id])
-
+		@user = User.find(params[:id])
+		@user.update(user_params)
 		if @user.update(user_params)
 			flash[:notice] = "設定が完了しました"
 			redirect_to user_path(@user.id)
 		else
 			flash.now[:error]
-			render :edit
+			render "edit"
 		end
 	end
 
@@ -45,7 +34,7 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:name, :profile_image, :introduction)
 	end
 
-	def correct_user
+	def ensure_correct_user
 		user = User.find(params[:id])
 
 		unless user == current_user
