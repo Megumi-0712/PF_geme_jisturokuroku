@@ -15,7 +15,7 @@
         <div class="col-xs-3">
           <%= link_to image_tag("logo.jpg"), root_path %>
         </div>
-        <div class="col-xs-5"></div>
+        <div class="col-xs-6"></div>
           <div class="nav navbar-right">
             <ul class="nav-nav-field">
               <br>
@@ -40,8 +40,9 @@
                 </li>
 
                 <li>
-                  <%= link_to 'お問い合わせ', new_contact_path %>
+                  <%= link_to 'みんなが投稿した記事をみる', blogs_path %>
                 </li>
+
                 <li>
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 </li>
@@ -72,8 +73,10 @@
           <div class="col-xs-5">
             <div class="footer-text">
               <h6>お借りした写真</h6>
-              <%= link_to "写真AC様", "https://www.photo-ac.com/" %><br>
-              <%= link_to "いらすとや様", "https://www.irasutoya.com/" %>
+              <p class="footer-text">
+                <%= link_to "写真AC様", "https://www.photo-ac.com/" %><br>
+                <%= link_to "いらすとや様", "https://www.irasutoya.com/" %>
+              </p>
             </div>
           </div>
           <div class="col-xs-2">

@@ -35,7 +35,6 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@user.update(user_params)
 		if @user.update(user_params)
 			flash[:notice] = "設定が完了しました"
 			redirect_to user_path(@user.id)

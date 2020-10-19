@@ -4,6 +4,22 @@
     <h2 class="sub-title">ログイン</h2>
     <br>
 
+    <!--コメントエラー-->
+
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "件のエラーが発生しました") %></h2>
+
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><% message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!--コメントエラーここまで-->
+
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :name %><br />

@@ -25,7 +25,7 @@ class BlogsController < ApplicationController
 	end
 
 	def show
-		@blog = Blog.find(params[:id])
+		@blog = Blog.find_by(id: params[:id])
 		@user = @blog.user
 		@comments = @blog.comments		#コメントを表示させる
 		@comment = Comment.new		#ブログ詳細ページでコメント投稿が出来るようにさせる
@@ -48,7 +48,7 @@ class BlogsController < ApplicationController
 	def destroy
 		@blog = Blog.find(params[:id])
 		@blog.destroy
-		redirect_to user_path
+		redirect_to blogs_path
 	end
 
 	private

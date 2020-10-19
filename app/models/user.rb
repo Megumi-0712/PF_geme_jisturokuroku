@@ -4,8 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :blogs, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
-  attachment :profile_image
+		has_many :blogs, dependent: :destroy
+		has_many :comments, dependent: :destroy
+		has_many :favorites, dependent: :destroy
+		attachment :profile_image
+
+  validates :name, presence: true,
+  			length: { minimum: 4, maximum: 20}
 end

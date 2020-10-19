@@ -20,7 +20,7 @@
 			<p class="blog-date">
 			<span>
 				<% if @blog.user == current_user %>
-				<%= link_to "ブログを編集する", blog_path(@user) %>
+				<%= link_to "ブログを編集する", edit_blog_path %>
 				<%= link_to "削除", blog_path(@blog.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
 			<% end %>
 			</span>
@@ -44,18 +44,32 @@
 					</div>
 
 					<span class= "comment-date"><%= comment.created_at.strftime("%Y/%m/%d") %></span>
-
-					<% if @blog.user == current_user %>
-						<%= link_to"削除", blog_comment_path(comment.blog, comment), method: :delete, class: "btn btn-danger btn-xs", "data-confirm" => "本当に消しますか？" %>
-					<% end %>
 				<% end %>
 			<% end %>
 			</br>
 
 		<!--コメント投稿フォーム-->
+
+		</br>
+		<!--コメントエラー-->
+
+			<% if @comment.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@comment.errors.count, "件のエラーが発生しました") %></h2>
+
+					<ul>
+						<% @comment.errors.full_messages.each do |message| %>
+							<li><% message %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+		<!--コメントエラーここまで-->
 		</br>
 		<% if user_signed_in? %>
 			<%= form_for [@blog, @comment] do |f| %>
+
 				<div class="row">
 					<div class="col-sm-12">
 						<%= f.text_area :comment_post, rows:'5', class: "form-control", placeholder:"コメントをここに" %>
@@ -66,14 +80,6 @@
 			<% end %>
 		<% end %>
 
-		<% if @comment.errors.any? %>
-			<h2><%= @comment.errors.count %>件のエラーが発生しました。</h2>
-				<ul>
-					<% @comment.errors.full_messages.each do |message| %>
-						<li><%= message %></li>
-					<% end %>
-				</ul>
-		<% end %>
 	</div>
 </div>
 <div class="container">
