@@ -1,10 +1,23 @@
 <div class="container">
 	<div class="col-xs-1"></div>
 	<div class="col-xs-3">
-		<%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
-		<%= @user.name %>
-		<%= @user.introduction %>
-		<%= link_to "設定", edit_user_path(@user.id) %>
+		<div class="user-bar">
+			<div class="user-icon-space">
+			<%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
+			</div>
+			<%= @user.name %>
+			<%= link_to "設定", edit_user_path(@user.id) %>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="introduction-space">
+				<p>自己紹介<br>
+					<%= @user.introduction %>
+				</p>
+			</div>
+		</div>
 	</div>
 	<div class="col-xs-5">
 		<h1 class="sub-title">ブログ一覧画面</h1>

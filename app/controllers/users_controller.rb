@@ -10,7 +10,11 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
-		@blogs = @user.blogs.page(params[:page]).reverse_order		#ソートの降順
+		@blogs = @user.blogs
+	end
+
+	def new
+		@user = User.new
 	end
 
 	def create
@@ -37,7 +41,7 @@ class UsersController < ApplicationController
 			redirect_to user_path(@user.id)
 		else
 			flash.now[:error]
-			render "edit"
+			render :edit
 		end
 	end
 

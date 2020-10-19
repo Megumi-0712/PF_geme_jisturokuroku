@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 		comment.blog_id = blog.id		#コメントのidとユーザーidは一緒
 		if comment.save
 			flash[:success] = "コメントしました"
-			redirect_to blog_path(blog)
+			redirect_to blog_path
 
 		else
 			flash[:danger] = "コメント投稿に失敗しました"
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
 
 	def destroy
 		Comment.find_by(id: params[:id], blog_id: params[:blog_id]).destroy
-		redirect_to blog_path(params[:blog_id])
+		redirect_to blog_path
 	end
 
 	private
@@ -28,8 +28,9 @@ class CommentsController < ApplicationController
 
 	def correct_comment
 		comment = Comment.find(params[:id])
-		user = commet.user
+		user = comment.user
 		unless user == current_user
-			redirect_to(blog_path)
+			redirect_to(user_path)
+		end
 	end
 end
