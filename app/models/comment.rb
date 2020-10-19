@@ -2,4 +2,5 @@ class Comment < ApplicationRecord
 
 	belongs_to :user
 	belongs_to :blog
+	validates :comment_post, presence: true
 end

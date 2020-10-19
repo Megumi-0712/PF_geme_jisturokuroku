@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
 
 	before_action :authenticate_user!
-	before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+	before_action :correct_blog, only: [:edit, :update, :destroy]
 
 	def index
 		@blogs = Blog.all
@@ -48,7 +48,7 @@ class BlogsController < ApplicationController
 	def destroy
 		@blog = Blog.find(params[:id])
 		@blog.destroy
-		redirect_to blogs_path
+		redirect_to user_path
 	end
 
 	private
@@ -61,7 +61,7 @@ class BlogsController < ApplicationController
 		blog = Blog.find(params[:id])
 		user = blog.user
 		unless user == current_user
-			redirect_to(blogs_path)
+			redirect_to(user_path)
 		end
 	end
 end

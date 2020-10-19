@@ -13,8 +13,20 @@ class UsersController < ApplicationController
 		@blogs = @user.blogs.page(params[:page]).reverse_order		#ソートの降順
 	end
 
+	def create
+		@user = User.create(user_params)
+		if @user.save
+			flash[:notice] = "ゲーム実録々にご登録いただき、有難うございます！"
+			redirect_to user_path(@user.id)
+		else
+			flash.now[:error]
+			render :new
+		end
+	end
+
 	def edit
 		@user = User.find(params[:id])
+		@users = User.all
 	end
 
 	def update
@@ -34,7 +46,7 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:name, :profile_image, :introduction)
 	end
 
-	def ensure_correct_user
+	def correct_user
 		user = User.find(params[:id])
 
 		unless user == current_user
