@@ -27,8 +27,7 @@ class BlogsController < ApplicationController
 	def show
 		@blog = Blog.find_by(id: params[:id])
 		@user = @blog.user
-		@comments = @blog.comments		#コメントを表示させる
-		@comment = Comment.new		#ブログ詳細ページでコメント投稿が出来るようにさせる
+		@post_comment = PostComment.new		#ブログ詳細ページでコメント投稿が出来るようにさせる
 	end
 
 	def edit
