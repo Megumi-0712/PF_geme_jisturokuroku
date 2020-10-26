@@ -15,6 +15,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "summernote-bs4";
  
  @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
 
@@ -107,6 +108,10 @@
  	height: 300px;
  	background-size: cover;
  	background-position: center;
+ }
+
+ .upload-blog-text {
+ 	margin-left: 330px;
  }
 
  footer{

@@ -78,6 +78,9 @@ gem 'kaminari','~> 1.2.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
+gem 'simple_form'
+gem 'summernote-rails', '~> 0.8.10.0'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
