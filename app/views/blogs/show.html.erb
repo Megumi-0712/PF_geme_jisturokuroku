@@ -44,6 +44,7 @@
 					</div>
 
 					<span class= "comment-date"><%= comment.created_at.strftime("%Y/%m/%d") %></span>
+					<%= link_to "コメントを削除", blog_comment_path(comment.blog, comment), method: :delete, "data-confirm" => "本当に消しますか？" %>
 				<% end %>
 			<% end %>
 			</br>
