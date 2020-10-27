@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="col-xs-4"></div>
 	<div class="col-xs-5">
-		<h1 class="sub-title">ブログ</h1>
+		<h1 class="sub-title"><%= @user.name %>さんのブログ</h1>
 		<span>
 			<h3 class="blog-title">
 				<%= @blog.title %>
@@ -11,7 +11,7 @@
 		<br>
 		<br>
 		<div class="blog-text">
-			<%= @blog.blog_text %>
+			<%= @blog.blog_text.html_safe %>
 		</div>
 		</br>
 
@@ -52,22 +52,7 @@
 		<!--コメント投稿フォーム-->
 
 		</br>
-		<!--コメントエラー-->
 
-			<% if @comment.errors.any? %>
-				<div id="error_explanation">
-					<h2><%= pluralize(@comment.errors.count, "件のエラーが発生しました") %></h2>
-
-					<ul>
-						<% @comment.errors.full_messages.each do |message| %>
-							<li><% message %></li>
-						<% end %>
-					</ul>
-				</div>
-			<% end %>
-
-		<!--コメントエラーここまで-->
-		</br>
 		<% if user_signed_in? %>
 			<%= form_for [@blog, @comment] do |f| %>
 
