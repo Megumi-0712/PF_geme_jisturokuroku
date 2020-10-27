@@ -32,5 +32,7 @@ module Rokuroku
 				</div>".html_safe
 			end
 		end
+
+		Refile.secret_key = 'a68f585dc9b6734e8a436a861278a9ee56f31cc80018fa98d3db025fee054960ad0622f038d97ad3240d6b6fe9b3abbc7bc041cab894acd15b515860ed6dfe71'
 	end
 end
