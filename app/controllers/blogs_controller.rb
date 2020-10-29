@@ -4,8 +4,8 @@ class BlogsController < ApplicationController
 	before_action :correct_blog, only: [:edit, :update, :destroy]
 
 	def index
-		@blogs = Blog.all
 		@user = current_user
+		@blogs = Blog.page(params[:page]).reverse_order
 	end
 
 	def new
@@ -27,9 +27,10 @@ class BlogsController < ApplicationController
 	def show
 		@blog = Blog.find_by(id: params[:id])
 		@user = @blog.user
-		@comments = Comment.all
+		@comments = Comment.page(params[:page]).reverse_order
 		@comment = Comment.find_by(id: params[:id])
 		@comment = Comment.new		#ブログ詳細ページでコメント投稿が出来るようにさせる
+		@favorite = Favorite.find_by(id: params[:id])
 	end
 
 	def edit

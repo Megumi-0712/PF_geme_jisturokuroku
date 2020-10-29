@@ -96,6 +96,7 @@
 
  .sub-title {
  	font-family: "rounded-mgenplus-2cp-light";
+ 	text-align: center;
  }
 
  .actions {
@@ -104,10 +105,22 @@
  }
 
  .img {
- 	width: 800px;
- 	height: 300px;
- 	background-size: cover;
- 	background-position: center;
+	width: 800px;
+	height: 300px;
+	background-size: cover;
+ }
+
+ .col-xs-4{
+ 	top: 30px;
+ }
+
+ p {
+ 	width: auto;
+ 	word-break: break-word;
+ }
+
+ .blog-updatetime {
+ 	margin-left: 100px;
  }
 
  input[type="text"] {
@@ -118,9 +131,17 @@
  	margin-left: 330px;
  }
 
+ .user-bar {
+	padding: 20px;
+	line-height: 1.9;
+	border: solid #752100;
+	border-radius: 40px 40px 40px 40px;
+ }
+
+
  footer{
- 	width:100%;
- 	background-color: #752100;
+	width:100%;
+	background-color: #752100;
  }
 
  .footer-text {
@@ -134,6 +155,6 @@
  	padding: 10px;
  }
 
- p, h4 {
+ h4 {
  	font-family: "rounded-mgenplus-2cp-regular";
  }

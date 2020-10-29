@@ -2,31 +2,38 @@
 	<div class="col-xs-4"></div>
 	<div class="col-xs-5">
 		<h1 class="sub-title"><%= @user.name %>さんのブログ</h1>
-		<span>
-			<h3 class="blog-title">
-				<%= @blog.title %>
-			</h3>
-			<%= @blog.created_at.strftime('%Y/%m/%d') %>
-		</span>
 		<br>
 		<br>
-		<div class="blog-text">
-			<%= @blog.blog_text.html_safe %>
-		</div>
-		</br>
-
-		<ul>
-
-			<p class="blog-date">
+		<div class="blog-box">
 			<span>
-				<% if @blog.user == current_user %>
-				<%= link_to "ブログを編集する", edit_blog_path %>
-				<%= link_to "削除", blog_path(@blog.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
-			<% end %>
+				<h3 class="blog-title">
+					<%= @blog.title %>
+				</h3>
+				投稿日：<%= @blog.created_at.strftime('%Y/%m/%d') %>
 			</span>
-			<div class="comment">
-				<p><%= @blog.comments.count %>件コメント</p>
+			<br>
+			<br>
+			<div class="blog-text">
+				<%= @blog.blog_text.html_safe %>
 			</div>
+			</br>
+
+			<ul>
+
+				<p class="blog-date">
+					<span>
+						<% if @blog.user == current_user %>
+						<%= link_to "ブログを編集する", edit_blog_path %>
+						<%= link_to "削除", blog_path(@blog.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+					<% end %>
+					</span>
+				</p>
+				<div class="comment">
+					<p><%= @blog.comments.count %>件コメント</p>
+				</div>
+			</ul>
+		</div>
+
 			</p>
 		</ul>
 	</div>
@@ -37,15 +44,27 @@
 	<div class="col-xs-5">
 		<h2 class="sub-title">コメント一覧</h2>
 			<% if @comments.any? %>
+			<table class="table">
+				<thead>
+					<tr></tr>
+					<tr></tr>
+					<tr></tr>
+				</thead>
 				<% @blog.comments.each do |comment| %>
-					<div class="comment-user">
-						<p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %>
-						<%= comment.comment_post %></p>
-					</div>
+				<tbody>
+					<tr>
+						<tr>
+							<p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %>
+							<%= comment.comment_post %></p>
+						</tr>
+					</tr>
 
 					<span class= "comment-date"><%= comment.created_at.strftime("%Y/%m/%d") %></span>
 					<%= link_to "コメントを削除", blog_comment_path(comment.blog, comment), method: :delete, "data-confirm" => "本当に消しますか？" %>
 				<% end %>
+			</table>
+				<br>
+				<%= paginate @comments %>
 			<% end %>
 			</br>
 

@@ -1,0 +1,22 @@
+<div class="col-xs-3">
+	<div class="user-bar">
+		<div class="user-icon-space">
+		<%= attachment_image_tag @user, :profile_image, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg", :size =>'50x50' %>
+		</div>
+		<%= @user.name %>
+		<br>
+		<%= link_to "設定", edit_user_path(@user.id) %>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="introduction-space">
+			<p>自己紹介<br>
+				<%= @user.introduction %>
+			</p>
+		</div>
+
+	</div>
+</div>
+<div class="col-xs-1"></div>
