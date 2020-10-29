@@ -4,6 +4,8 @@ class Blog < ApplicationRecord
 	has_many :comments, dependent: :delete_all
 	has_many :favorites, dependent: :destroy
 
+	paginates_per 10
+
 	validates :title, presence: true
 	validates :blog_text, presence: true
 

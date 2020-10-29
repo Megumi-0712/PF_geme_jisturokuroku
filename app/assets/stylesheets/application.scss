@@ -99,6 +99,10 @@
  	text-align: center;
  }
 
+ .blog_title {
+ 	width:100px;
+ }
+
  .actions {
  	margin: 0;
  	padding-left: 40px;
@@ -124,20 +128,20 @@
  	word-break: break-word;
  }
 
- .blog-updatetime {
- 	margin-left: 100px;
- }
-
- input[type="text"] {
+ .form-control {
  	width: 740px;
  }
- 
+
  .introduction {
  	width: 740px;
  	height: 200px;
  }
 
  .upload-blog-text {
+ 	margin-left: 330px;
+ }
+
+ .upload-comment-text {
  	margin-left: 330px;
  }
 
@@ -148,6 +152,14 @@
 	border-radius: 40px 40px 40px 40px;
  }
 
+ .paginate {
+ 	text-align: center;
+ }
+
+ td {
+	vertical-align: middle;
+ }
+
 
  footer{
 	width:100%;
@@ -155,6 +167,11 @@
  }
 
  .footer-text {
+ 	color: white;
+ 	font-family: "rounded-mgenplus-2cp-light";
+ }
+
+ .footer-text-center {
  	color: white;
  	font-family: "rounded-mgenplus-2cp-light";
  }

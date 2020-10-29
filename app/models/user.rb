@@ -8,6 +8,7 @@ class User < ApplicationRecord
 		has_many :comments, dependent: :destroy
 		has_many :favorites, dependent: :destroy
 		attachment :profile_image
+    paginates_per 10
 
   validates :name, presence: true,
   			length: { minimum: 4, maximum: 20}

@@ -1,4 +1,7 @@
 <div class="container">
+	<% if flash[:notice] %>
+		<p><%= flash[:notice] %></p>
+	<% end %>
 	<div class="col-xs-4"></div>
 	<div class="col-xs-5">
 		<h1 class="sub-title"><%= @user.name %>さんのブログ</h1>
@@ -61,10 +64,11 @@
 
 					<span class= "comment-date"><%= comment.created_at.strftime("%Y/%m/%d") %></span>
 					<%= link_to "コメントを削除", blog_comment_path(comment.blog, comment), method: :delete, "data-confirm" => "本当に消しますか？" %>
+					<br>
+					<br>
 				<% end %>
+				</tbody>
 			</table>
-				<br>
-				<%= paginate @comments %>
 			<% end %>
 			</br>
 
@@ -81,10 +85,14 @@
 					</div>
 				</div>
 				<br>
-				<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+				<br>
+				<br>
+
+				<div class="upload-comment-text">
+					<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+				</div>
 			<% end %>
 		<% end %>
-
 	</div>
 </div>
 <div class="container">

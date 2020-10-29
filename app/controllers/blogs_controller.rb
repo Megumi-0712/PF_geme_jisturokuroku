@@ -27,7 +27,7 @@ class BlogsController < ApplicationController
 	def show
 		@blog = Blog.find_by(id: params[:id])
 		@user = @blog.user
-		@comments = Comment.page(params[:page]).reverse_order
+		@comments = Comment.all
 		@comment = Comment.find_by(id: params[:id])
 		@comment = Comment.new		#ブログ詳細ページでコメント投稿が出来るようにさせる
 		@favorite = Favorite.find_by(id: params[:id])
