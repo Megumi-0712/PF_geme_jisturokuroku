@@ -3,9 +3,13 @@
 		<div class="user-icon-space">
 		<%= attachment_image_tag @user, :profile_image, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg", :size =>'50x50' %>
 		</div>
-		<%= @user.name %>
+		<div class="user-name">
+			<%= @user.name %>
+		</div>
 		<br>
-		<%= link_to "設定", edit_user_path(@user.id) %>
+		<br>
+		<br>
+		<%= link_to "設定", edit_user_path(@user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 		<br>
 		<br>
 		<br>

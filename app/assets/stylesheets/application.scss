@@ -114,6 +114,11 @@
  	top: 30px;
  }
 
+ .user-name {
+ 	text-align: center;
+ 	padding-top: 10px;
+ }
+
  p {
  	width: auto;
  	word-break: break-word;
@@ -125,6 +130,11 @@
 
  input[type="text"] {
  	width: 740px;
+ }
+ 
+ .introduction {
+ 	width: 740px;
+ 	height: 200px;
  }
 
  .upload-blog-text {
