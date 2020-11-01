@@ -20,7 +20,7 @@
 https://app.diagrams.net/#G1hgDN1KfPetX1vKN1-zPrPx6yPn8L4DPH
 
 ### 機能一覧
-https://docs.google.com/spreadsheets/d/1tUtqzyhFl_6jx3Wq8acSfK-7y5FBHKzzVPjrgp0DgSw/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1_IMDt3kUVT6CqFa12lPO14F6rNcKd089gMscHGDu7j0/edit?usp=sharing
 ## 開発環境
 - OS：windows10
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
