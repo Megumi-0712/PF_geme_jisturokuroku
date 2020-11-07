@@ -10,76 +10,80 @@
 
   <body>
     <div class="container">
-      <header>
-        <div class="col-xs-2">
-          <%= link_to image_tag("logo.jpg"), root_path %>
-        </div>
-        <div class="col-xs-6"></div>
-          <div class="nav navbar-right">
-            <ul class="nav-nav-field">
-              <br>
-              <br>
-
-<!--サインインしているかしていないかによってメニューの表記が変わる。else以降のコードは非ログイン状態-->
-
-              <% if user_signed_in? %>
-
-                <li class="current">
-                  <%= link_to 'About', about_path %>
-                </li>
-                <li>
-                  <%= link_to "マイページ", user_path(current_user) %>
-                </li>
-                <li>
-                  <%= link_to '新規作成', new_blog_path %>
-                </li>
-
-                <li>
-                  <%= link_to 'ユーザー一覧', users_path %>
-                </li>
-
-                <li>
-                  <%= link_to 'みんなが投稿した記事をみる', blogs_path %>
-                </li>
-
-                <li>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                </li>
-              <% else %>
-
-                <li class="current">
-                  <%= link_to 'About', about_path %>
-                </li>
-                <li>
-                  <%= link_to "ログイン", new_user_session_path %>
-                </li>
-                <li>
-                  <%= link_to "新規登録", new_user_registration_path %>
-                </li>
-              <% end %>
-
-<!--メニューここまで-->
-
-            </ul>
+      <div class="rol">
+        <header>
+          <div class="col-xs-2">
+            <%= link_to image_tag("logo.jpg"), root_path %>
           </div>
-        </div>
-      </header>
+          <div class="col-xs-6"></div>
+            <div class="nav navbar-right">
+              <ul class="nav-nav-field">
+                <br>
+                <br>
+
+  <!--サインインしているかしていないかによってメニューの表記が変わる。else以降のコードは非ログイン状態-->
+
+                <% if user_signed_in? %>
+
+                  <li class="current">
+                    <%= link_to 'About', about_path %>
+                  </li>
+                  <li>
+                    <%= link_to "マイページ", user_path(current_user) %>
+                  </li>
+                  <li>
+                    <%= link_to '新規作成', new_blog_path %>
+                  </li>
+
+                  <li>
+                    <%= link_to 'ユーザー一覧', users_path %>
+                  </li>
+
+                  <li>
+                    <%= link_to 'みんなが投稿した記事をみる', blogs_path %>
+                  </li>
+
+                  <li>
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </li>
+                <% else %>
+
+                  <li class="current">
+                    <%= link_to 'About', about_path %>
+                  </li>
+                  <li>
+                    <%= link_to "ログイン", new_user_session_path %>
+                  </li>
+                  <li>
+                    <%= link_to "新規登録", new_user_registration_path %>
+                  </li>
+                <% end %>
+
+  <!--メニューここまで-->
+
+              </ul>
+            </div>
+          </div>
+        </header>
       </div>
+    </div>
     <%= yield %>
     <footer>
       <div id="footer">
         <div class="container">
-          <div class="col-xs-5">
-            <div class="footer-text">
-              <h6>お借りした写真</h6>
-              <p class="footer-text">
-                <%= link_to "写真AC様", "https://www.photo-ac.com/" %><br>
-                <%= link_to "いらすとや様", "https://www.irasutoya.com/" %>
-              </p>
+          <div class="rol">
+            <div class="col-xs-5">
+              <div class="footer-text">
+                <h6>お借りした写真</h6>
+                <p class="footer-text">
+                  <%= link_to "写真AC様", "https://www.photo-ac.com/" %><br>
+                  <%= link_to "いらすとや様", "https://www.irasutoya.com/" %>
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-2">
-            <h4 class="footer-text-center">ゲーム実録々</h4>
+            <div class="col-xs-2">
+              <h4 class="footer-text-center">ゲーム実録々</h4>
+            </div>
           </div>
         </div>
       </div>
