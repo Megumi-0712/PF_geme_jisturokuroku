@@ -12,4 +12,11 @@ class Blog < ApplicationRecord
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
 	end
-end
+
+#ブログのアーカイブ
+
+	def divide_monthly
+		return self.articles.group("strftime('%Y%m', articles.created_at)").order(Arel.sql("strftime('%Y%m', articles.created_at) desc")).count
+	end
+
+#ブログのアーカイブここまで
