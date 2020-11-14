@@ -10,11 +10,6 @@ class CommentsController < ApplicationController
 			redirect_to blog_path(blog)
 	end
 
-	def destroy
-		Comment.find_by(id: params[:id], blog_id: params[:blog_id]).destroy
-		redirect_to blog_path(params[:blog_id])
-	end
-
 	private
 	def comment_params
 		params.require(:comment).permit(:user_id, :blog_id, :comment_post)

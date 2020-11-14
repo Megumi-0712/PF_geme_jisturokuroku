@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 		resources :comments, only: [:create, :destroy]
 	end
 
-	get '/blogs/:id/archives/:yyyymm', to: 'blogs#archives', as: :blog_title
 	resources :contacts, only: [:new, :create]
 	resources :users, only: [:index, :show, :edit, :update]
 end

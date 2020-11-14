@@ -31,14 +31,6 @@ class BlogsController < ApplicationController
 		@comment = Comment.find_by(id: params[:id])
 		@comment = Comment.new		#ブログ詳細ページでコメント投稿が出来るようにさせる
 		@favorite = Favorite.find_by(id: params[:id])
-		@archives = @blog.divide_monthly
-	end
-
-	def archives
-		@blog = Blog.find(params[:id])
-		@yyyymm = params[:yyyymm]
-		@articles = @blog.articles.where("strftime('%Y%m', articles.created_at) = '"+@yyyymm+"'").paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-		@archives = @blog.make_archive
 	end
 
 	def edit
