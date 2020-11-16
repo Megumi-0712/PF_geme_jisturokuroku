@@ -1,0 +1,2 @@
+class BlogSeach < ApplicationRecord
+end

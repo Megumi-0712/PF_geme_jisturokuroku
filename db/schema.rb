@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_115018) do
+ActiveRecord::Schema.define(version: 2020_11_16_140228) do
+
+  create_table "blog_seaches", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
-    t.text "blog_text"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "updated_at", null: false
