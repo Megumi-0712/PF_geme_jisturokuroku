@@ -3,6 +3,8 @@ class BlogsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :correct_blog, only: [:edit, :update, :destroy]
 
+	impressionist :actions => [:show]
+
 	def index
 		@user = current_user
 		@blogs = Blog.page(params[:page]).reverse_order
@@ -26,6 +28,7 @@ class BlogsController < ApplicationController
 
 	def show
 		@blog = Blog.find_by(id: params[:id])
+		impressionist(@blog, nil,unique: [:session_hash])		#複数回閲覧すると1回になるように計測した
 		@user = @blog.user
 		@comments = Comment.all
 		@comment = Comment.find_by(id: params[:id])
