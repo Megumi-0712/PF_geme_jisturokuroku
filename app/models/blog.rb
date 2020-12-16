@@ -9,6 +9,8 @@ class Blog < ApplicationRecord
 	validates :title, presence: true
 	validates :body, presence: true
 
+	is_impressionable		#閲覧数を計測する
+
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
 	end
