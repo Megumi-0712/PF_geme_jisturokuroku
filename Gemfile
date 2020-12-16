@@ -89,6 +89,8 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'summernote-rails', '~> 0.8.10.0'
 
+gem 'impressionist'   #ブログの閲覧数を計測するgem
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
